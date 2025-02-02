@@ -28,8 +28,8 @@ class Book {
   }
 }
 
-class BookFunny extends Book {
-  String type;
-  BookFunny(String name, int year, {this.type = 'Sach vui ve'})
-      : super(name, year);
-}
+// class BookFunny extends Book {
+//   String type;
+//   BookFunny(String name, int year, {this.type = 'Sach vui ve'})
+//       : super(name, year);
+// }
