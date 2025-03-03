@@ -16,4 +16,4 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 Section III
-1.Add uuid to Flutter flutter pub add uuid
+1.Add uuid to Flutter: flutter pub add uuid
