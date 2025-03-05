@@ -17,3 +17,5 @@ samples, guidance on mobile development, and a full API reference.
 
 Section III
 1.Add uuid to Flutter: flutter pub add uuid
+
+2. Add format date: flutter pub add intl
