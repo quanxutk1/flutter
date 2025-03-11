@@ -8,7 +8,7 @@
             "name": "FLUTTER",
             "request": "launch",
             "type": "dart",
-             "program": "lib/models/main.dart"
+             "program": "lib/Section_III/main.dart"
         },
         {
             "name": "FLUTTER (profile mode)",

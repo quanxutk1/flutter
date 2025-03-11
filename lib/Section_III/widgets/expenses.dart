@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/class/expense.dart';
-import 'package:my_app/widgets/expense_list/expenses_list.dart';
-import 'package:my_app/widgets/new_expense.dart';
+import 'package:my_app/Section_III/models/expense.dart';
+import 'package:my_app/Section_III/widgets/chart/chart.dart';
+import 'package:my_app/Section_III/widgets/expense_list/expenses_list.dart';
+import 'package:my_app/Section_III/widgets/new_expense.dart';
 
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
@@ -86,7 +87,7 @@ class _ExpensesState extends State<Expenses> {
       body: Column(
         children: [
           // Add toolbar => Row()
-          const Text('The chart'),
+          Chart(expenses: _registerExpense),
           Expanded(child: maimContent),
         ],
       ),
