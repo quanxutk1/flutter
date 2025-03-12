@@ -29,6 +29,7 @@ class _ExpensesState extends State<Expenses> {
   ];
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
+      useSafeArea: true,
       isScrollControlled: true,
       context: context,
       builder: (ctx) => NewExpense(
@@ -44,7 +45,7 @@ class _ExpensesState extends State<Expenses> {
   }
 
   void _removeExpense(Expense expense) {
-    final _expenseIndex = _registerExpense.indexOf(expense);
+    final expenseIndex = _registerExpense.indexOf(expense);
 
     setState(() {
       _registerExpense.remove(expense);
@@ -57,7 +58,7 @@ class _ExpensesState extends State<Expenses> {
           label: 'Undo',
           onPressed: () {
             setState(() {
-              _registerExpense.insert(_expenseIndex, expense);
+              _registerExpense.insert(expenseIndex, expense);
             });
           }),
     ));
@@ -65,6 +66,10 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.height);
+    print(MediaQuery.of(context).size.width);
+    final width = MediaQuery.of(context).size.width;
+
     Widget maimContent = Center(
       child: Text('No expense to show'),
     );
@@ -84,13 +89,21 @@ class _ExpensesState extends State<Expenses> {
           )
         ],
       ),
-      body: Column(
-        children: [
-          // Add toolbar => Row()
-          Chart(expenses: _registerExpense),
-          Expanded(child: maimContent),
-        ],
-      ),
+      body: width < 600
+          ? Column(
+              children: [
+                // Add toolbar => Row()
+                Chart(expenses: _registerExpense),
+                Expanded(child: maimContent),
+              ],
+            )
+          : Row(
+              children: [
+                // Add toolbar => Row()
+                Expanded(child: Chart(expenses: _registerExpense)),
+                Expanded(child: maimContent),
+              ],
+            ),
     );
   }
 }
