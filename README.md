@@ -19,3 +19,5 @@ Section III
 1.Add uuid to Flutter: flutter pub add uuid
 
 2. Add format date: flutter pub add intl
+
+3. Quan ly trang thai khong can truyen nhieu dung riverpod: flutter pub add flutter_riverpod, su dung provider va consumer
