@@ -6,15 +6,22 @@ import 'package:my_app/finished/SectionIV/screens/meals.dart';
 import 'package:my_app/finished/SectionIV/widgets/category_grid_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key});
+  const CategoriesScreen(
+      {super.key,
+      required this.onTogleMealStatus,
+      required this.availabeMeals});
+
+  final void Function(Meal meal) onTogleMealStatus;
+  final List<Meal> availabeMeals;
   void _selectCategory(context, Category category) {
-    final List<Meal> filterMeals = dummyMeals
+    final List<Meal> filterMeals = availabeMeals
         .where((meal) => meal.categories.contains(category.id))
         .toList();
     Navigator.of(context).push(MaterialPageRoute(
       builder: (ctx) => MealsScreen(
         title: category.title,
         meals: filterMeals,
+        onTogleMealStatus: onTogleMealStatus,
       ),
     ));
   }

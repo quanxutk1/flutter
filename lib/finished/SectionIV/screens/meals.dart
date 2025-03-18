@@ -4,18 +4,22 @@ import 'package:my_app/finished/SectionIV/screens/meal_details.dart';
 import 'package:my_app/finished/SectionIV/widgets/meal_item.dart';
 
 class MealsScreen extends StatelessWidget {
-  const MealsScreen({
-    super.key,
-    this.title,
-    required this.meals,
-  });
+  const MealsScreen(
+      {super.key,
+      this.title,
+      required this.meals,
+      required this.onTogleMealStatus});
   final String? title;
   final List<Meal> meals;
+  final void Function(Meal meal) onTogleMealStatus;
 
   void selectMeal(BuildContext context, Meal meal) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (ctx) => MealDetailScreen(meal: meal),
+        builder: (ctx) => MealDetailScreen(
+          meal: meal,
+          onTogleMealStatus: onTogleMealStatus,
+        ),
       ),
     );
   }
@@ -39,7 +43,7 @@ class MealsScreen extends StatelessWidget {
         children: [
           Text('uh oh nothing here... ',
               style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                    color: Theme.of(context).colorScheme.onBackground,
+                    color: Theme.of(context).colorScheme.onSurface,
                   )),
           const SizedBox(
             height: 16,
@@ -47,7 +51,7 @@ class MealsScreen extends StatelessWidget {
           Text(
             'Try different',
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  color: Theme.of(context).colorScheme.onBackground,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
           ),
         ],
