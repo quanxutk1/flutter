@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/Tutorials/Section_III/quiz.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
-      home: Scaffold(
-        body: Text('Section III'),
-      ),
-    ),
-  );
+  runApp(Quiz());
 }
