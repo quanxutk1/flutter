@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_app/finished/SectionIV/provider/filters_provider.dart';
-import 'package:my_app/finished/SectionIV/screens/tabs.dart';
-import 'package:my_app/finished/SectionIV/widgets/main_drawer.dart';
 
 class FiltersScreen extends ConsumerWidget {
   const FiltersScreen({super.key});

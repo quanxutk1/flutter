@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/Tutorials/Section_III/question_screen.dart';
+import 'package:my_app/Tutorials/Section_III/result_screen.dart';
 import 'package:my_app/Tutorials/Section_III/start_screen.dart';
+import 'package:my_app/finished/Section%20II/data/question.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -10,20 +12,19 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-// // Cach 1 su dung qua InitState
-//   Widget? activeScreen;
-//   @override
-//   void initState() {
-//     activeScreen =
-//         StartScreen(Colors.deepPurple, Colors.deepOrange, switchScreen);
-//     super.initState();
-//   }
+  final List<String> selectedAnswer = [];
 
-//   void switchScreen() {
-//     setState(() {
-//       activeScreen = const QuestionScreen();
-//     });
-//   }
+  void chooseAnswer(String answer) {
+    selectedAnswer.add(answer);
+
+    // Khi la cau hoi cuoi cung thi ve man hinh khoi dong
+    if (selectedAnswer.length == questions.length) {
+      selectedAnswer.clear();
+      setState(() {
+        activeScreen = 'result-screen';
+      });
+    }
+  }
 
 // Cach 2 su dung qua bieu thuc 3 ngoi
   var activeScreen = 'start-screen';
@@ -40,7 +41,20 @@ class _QuizState extends State<Quiz> {
         StartScreen(Colors.deepPurple, Colors.deepOrange, switchScreen);
 
     if (activeScreen == 'question-screen') {
-      screenWiget = const QuestionScreen();
+      screenWiget = QuestionScreen(
+        onSelectAnswer: chooseAnswer,
+      );
+    }
+    switch (activeScreen) {
+      case 'question-screen':
+        screenWiget = QuestionScreen(
+          onSelectAnswer: chooseAnswer,
+        );
+        break;
+      case 'result-screen':
+        screenWiget = ResultScreen();
+        break;
+      default:
     }
 
     return MaterialApp(

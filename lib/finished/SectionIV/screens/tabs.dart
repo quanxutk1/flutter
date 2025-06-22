@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_app/finished/SectionIV/data/dummy_data.dart';
-import 'package:my_app/finished/SectionIV/models/meal.dart';
 import 'package:my_app/finished/SectionIV/provider/favourite_provider.dart';
 import 'package:my_app/finished/SectionIV/provider/filters_provider.dart';
-import 'package:my_app/finished/SectionIV/provider/meal_provider.dart';
 import 'package:my_app/finished/SectionIV/screens/categories.dart';
 import 'package:my_app/finished/SectionIV/screens/filters.dart';
-import 'package:my_app/finished/SectionIV/screens/meal_details.dart';
 import 'package:my_app/finished/SectionIV/screens/meals.dart';
 import 'package:my_app/finished/SectionIV/widgets/main_drawer.dart';
 

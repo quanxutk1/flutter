@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_app/finished/SectionIV/provider/meal_provider.dart';
-import 'package:my_app/finished/SectionIV/screens/filters.dart';
 
 enum Filters {
   gluten,
