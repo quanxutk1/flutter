@@ -17,7 +17,7 @@ class _QuizState extends State<Quiz> {
   void chooseAnswer(String answer) {
     selectedAnswer.add(answer);
 
-    // Khi la cau hoi cuoi cung thi ve man hinh khoi dong
+    // Khi la cau hoi cuoi cung thi ve man hinh ket qua
     if (selectedAnswer.length == questions.length) {
       selectedAnswer.clear();
       setState(() {
@@ -26,7 +26,7 @@ class _QuizState extends State<Quiz> {
     }
   }
 
-// Cach 2 su dung qua bieu thuc 3 ngoi
+//Cach 2 su dung qua bieu thuc 3 ngoi
   var activeScreen = 'start-screen';
 
   void switchScreen() {
@@ -40,11 +40,11 @@ class _QuizState extends State<Quiz> {
     Widget screenWiget =
         StartScreen(Colors.deepPurple, Colors.deepOrange, switchScreen);
 
-    if (activeScreen == 'question-screen') {
-      screenWiget = QuestionScreen(
-        onSelectAnswer: chooseAnswer,
-      );
-    }
+    // if (activeScreen == 'question-screen') {
+    //   screenWiget = QuestionScreen(
+    //     onSelectAnswer: chooseAnswer,
+    //   );
+    // }
     switch (activeScreen) {
       case 'question-screen':
         screenWiget = QuestionScreen(
@@ -52,7 +52,9 @@ class _QuizState extends State<Quiz> {
         );
         break;
       case 'result-screen':
-        screenWiget = ResultScreen();
+        screenWiget = ResultScreen(
+          chosenAnswer: selectedAnswer,
+        );
         break;
       default:
     }
